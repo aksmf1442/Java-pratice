@@ -1,7 +1,7 @@
 
 public class Gugudan {
-    public static int[] calculate(int times){
-        int[] result = new int[9];
+    public static int[] calculate(int times, int second){
+        int[] result = new int[second];
         for (int i = 0; i < result.length; i++){
             result[i] = times * (i+1);
         }
