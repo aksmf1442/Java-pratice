@@ -17,14 +17,17 @@ public class Calendar {
     }
 
     public static void main(String[] args) {
-        System.out.println("반복 횟수를 입력하세요.");
+        String PROMPT="cal> ";
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        System.out.println("월을 입력하세요.");
         // 객체 생성
         Calendar cal = new Calendar();
-        for (int i = 0; i < n; i++) {
+        while (true) {
+            System.out.println("월을 입력하세요.(-1을 입력하면 루프가 멈춥니다.)");
+            System.out.print(PROMPT);
             int month = scanner.nextInt();
+            if (month == -1){
+                break;
+            }
             if (month < 13 && month > 0) {
                 System.out.printf("%d월은 %d일까지 있습니다.%n", month, cal.getMaxDaysOfMonth(month));
             } else {
