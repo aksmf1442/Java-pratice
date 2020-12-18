@@ -1,39 +1,40 @@
-import java.util.Scanner;
 
 public class Calendar {
     private static final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    private static final int[] LEAP_MAX_DAYS = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    public int getMaxDaysOfMonth(int month) {
+    public boolean isLeapYear(int year){
+        if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)){
+            return true;
+        }
+        return false;
+    }
+
+    public int getMaxDaysOfMonth(int year, int month) {
+        if (isLeapYear(year)){
+            return LEAP_MAX_DAYS[month - 1];
+        }
         return MAX_DAYS[month - 1];
     }
 
-    public void printSampleCalendar() {
-        System.out.println("일  월  화  수  목  금  토");
-        System.out.println("----------------------");
-        System.out.println(" 1  2  3  4  5  6  7");
-        System.out.println(" 8  9 10 11 12 13 14");
-        System.out.println("15 16 17 18 19 20 21");
-        System.out.println("22 23 24 25 26 27 28");
-    }
-
-    public static void main(String[] args) {
-        String PROMPT="cal> ";
-        Scanner scanner = new Scanner(System.in);
-        // 객체 생성
+    public void printCalendar(int year, int month) {
         Calendar cal = new Calendar();
-        while (true) {
-            System.out.println("월을 입력하세요.(-1을 입력하면 루프가 멈춥니다.)");
-            System.out.print(PROMPT);
-            int month = scanner.nextInt();
-            if (month == -1){
-                break;
+        System.out.printf("    <%d년 %d월>%n",year, month);
+        System.out.println("SU MO TU WE TH FR SA");
+        System.out.println("----------------------");
+        int MAX_DAYS = cal.getMaxDaysOfMonth(year, month);
+
+        for (int i = 0; i < MAX_DAYS; i++){
+            if (i < 9){
+                System.out.printf(" %d ",i+1);
+            }else{
+                System.out.printf("%d ", i+1);
             }
-            if (month < 13 && month > 0) {
-                System.out.printf("%d월은 %d일까지 있습니다.%n", month, cal.getMaxDaysOfMonth(month));
-            } else {
-                System.out.printf("%d월은 없는 달입니다.", month);
+            if ((i+1)%7==0){
+                System.out.println();
             }
         }
-        System.out.println("Bye~");
+        System.out.println();
     }
+
 }
