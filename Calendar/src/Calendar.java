@@ -17,20 +17,23 @@ public class Calendar {
         return MAX_DAYS[month - 1];
     }
 
-    public void printCalendar(int year, int month) {
+    public void printCalendar(int year, int month, int count) {
         Calendar cal = new Calendar();
         System.out.printf("    <%d년 %d월>%n",year, month);
         System.out.println("SU MO TU WE TH FR SA");
         System.out.println("----------------------");
         int MAX_DAYS = cal.getMaxDaysOfMonth(year, month);
-
+        for (int i = 0; i < count; i++){
+            System.out.print("   ");
+        }
         for (int i = 0; i < MAX_DAYS; i++){
             if (i < 9){
                 System.out.printf(" %d ",i+1);
             }else{
                 System.out.printf("%d ", i+1);
             }
-            if ((i+1)%7==0){
+            count++;
+            if ((count)%7==0){
                 System.out.println();
             }
         }
