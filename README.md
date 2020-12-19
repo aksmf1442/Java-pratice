@@ -33,3 +33,19 @@ eclipse의 UI가 마음에 안 들어서 intellij로 결정하였다.
 * Final : 처음 초기화 이후 다시 초기화 하지 못하게 함, 자바스크립트의 const와 비슷(?)하다고 생각하자.
 
 ***
+
+## 12/19
+* 달력 구현완료(File i/o에 관한 내용은 나중에 다시 공부)
+
+### 파이썬과 자바 비교
+* 자바는 리스트를 사용할 때 객체를 선언(ex:List<String> list = new ArrayList<String>();)
+  하고 사용가능하지만 파이썬은 바로 초기화 가능하다.
+* 파이썬은 hashmap의 value에 값을 추가할 때, 변수[key값].append()로 간단하게 리스트 값을 추가 가능 
+  하지만 자바는 list값을 따로 변수로 저장하고 추가하고 싶은 것을 list값에 추가한 후 다시 hashmap의 value에
+  값을 넣는다.
+
+### 오늘 기억하고 싶은 것.
+* 자바 hashmap 안에 리스트 넣는 객체 선언 : 
+  HashMap<String, ArrayList<String>> dic = new HashMap<String, ArrayList<String>>()
+
+***
