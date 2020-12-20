@@ -49,3 +49,11 @@ eclipse의 UI가 마음에 안 들어서 intellij로 결정하였다.
   HashMap<String, ArrayList<String>> dic = new HashMap<String, ArrayList<String>>()
 
 ***
+
+## 12/20
+* 홀짝게임 구현완료
+
+### 내일 공부해야 할 것
+* 파일 I/O에 대해서 공부해서 홀짝게임에 랭킹 시스템을 부여하고, 달력의 일정을 저장할 수 있게한다.
+
+***
