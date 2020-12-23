@@ -18,26 +18,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PlayGame {
-    private final String[][] gameMap = new String[11][11];
+    private static String[][] gameMap = new String[11][11];
     private final int INIT_LOCATION = 5;
     private final int[] moveX = {-1,0,1,0};
     private final int[] moveY = {0,-1,0,1};
     private final String background = "*";
     private final String player = "P";
-    private final String mine = "M";
-    private final String monster = "O";
-    private int[] playerXY = new int[2];
-    private int[] mineXY = new int[2];
-    private int[] monsterXY = new int[2];
+    private final String mine = "❌";
+    private final String monster = "M";
+    private final int[] playerXY = new int[2];
+    private final int[] mineXY = new int[2];
+    private final int[] monsterXY = new int[2];
+    private int result = 0;
 
     public static void main(String[] args){
         PlayGame p = new PlayGame();
-        Random random = new Random();
-        p.initPlayer();
-        p.initMine(random);
-        p.initMonster(random);
-        p.initBackground();
-        p.printMap();
+        p.initValue();
         p.play();
     }
 
@@ -86,31 +82,45 @@ public class PlayGame {
             else if(direction.equals("S")) MoveS();
             else if(direction.equals("D")) MoveD();
             else System.out.println("WASD중에 하나를 입력해주세요.");
-            if (playerXY.equals(mineXY)) break;
+            if (playerXY[0] == mineXY[0] && playerXY[1] == mineXY[1] ) {
+                System.out.printf("지뢰를 밟아서 게임을 종료합니다.(처치한 몬스터 수:%d)\n",result);
+                break;
+            }
             printMap();
+            if (playerXY[0] == monsterXY[0] && playerXY[1] == monsterXY[1]){
+                result += 1;
+                System.out.printf("현재 %d마리의 몬스터를 잡았습니다.\n", result);
+                gameMap = new String[11][11];
+                initValue();
+            }
         }
+    }
+
+    private void initValue(){
+        Random random = new Random();
+        initPlayer();
+        initMine(random);
+        initMonster(random);
+        initBackground();
+        printMap();
     }
 
     private void initPlayer(){
         playerXY[0] = INIT_LOCATION;
         playerXY[1] = INIT_LOCATION;
-        gameMap[INIT_LOCATION][INIT_LOCATION] = player;
+        gameMap[playerXY[0]][playerXY[1]] = player;
     }
 
     private void initMine(Random random){
-        int x = random.nextInt(11);
-        int y = random.nextInt(11);
-        mineXY[0] = x;
-        mineXY[1] = y;
-        gameMap[x][y] = mine;
+        mineXY[0] = random.nextInt(11);
+        mineXY[1] = random.nextInt(11);
+        gameMap[mineXY[0]][mineXY[1]] = mine;
     }
 
     private void initMonster(Random random){
-        int x = random.nextInt(11);
-        int y = random.nextInt(11);
-        monsterXY[0] = x;
-        monsterXY[1] = y;
-        gameMap[x][y] = monster;
+        monsterXY[0] = random.nextInt(11);
+        monsterXY[1] = random.nextInt(11);
+        gameMap[monsterXY[0]][monsterXY[1]] = monster;
     }
 
     private void initBackground(){
