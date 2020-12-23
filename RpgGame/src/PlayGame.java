@@ -15,16 +15,20 @@
 // 점수 획득하고 지뢰 증가시켜서 재시작
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class PlayGame {
-    private static final String[][] gameMap = new String[11][11];
-    private int INIT_LOCATION = 5;
-    private int[] moveX = {-1,1,0,0};
-    private int[] moveY = {0,0,-1,1};
-    private String background = "*";
-    private String player = "P";
-    private String mine = "M";
-    private String monster = "O";
+    private final String[][] gameMap = new String[11][11];
+    private final int INIT_LOCATION = 5;
+    private final int[] moveX = {-1,0,1,0};
+    private final int[] moveY = {0,-1,0,1};
+    private final String background = "*";
+    private final String player = "P";
+    private final String mine = "M";
+    private final String monster = "O";
+    private int[] playerXY = new int[2];
+    private int[] mineXY = new int[2];
+    private int[] monsterXY = new int[2];
 
     public static void main(String[] args){
         PlayGame p = new PlayGame();
@@ -34,6 +38,7 @@ public class PlayGame {
         p.initMonster(random);
         p.initBackground();
         p.printMap();
+        p.play();
     }
 
     private void printMap(){
@@ -45,19 +50,66 @@ public class PlayGame {
         }
     }
 
+    private void MoveW(){
+        gameMap[playerXY[0]][playerXY[1]] = background;
+        playerXY[0] += moveX[0];
+        playerXY[1] += moveY[0];
+        gameMap[playerXY[0]][playerXY[1]] = player;
+    }
+    private void MoveA(){
+        gameMap[playerXY[0]][playerXY[1]] = background;
+        playerXY[0] += moveX[1];
+        playerXY[1] += moveY[1];
+        gameMap[playerXY[0]][playerXY[1]] = player;
+    }
+    private void MoveS(){
+        gameMap[playerXY[0]][playerXY[1]] = background;
+        playerXY[0] += moveX[2];
+        playerXY[1] += moveY[2];
+        gameMap[playerXY[0]][playerXY[1]] = player;
+    }
+    private void MoveD(){
+        gameMap[playerXY[0]][playerXY[1]] = background;
+        playerXY[0] += moveX[3];
+        playerXY[1] += moveY[3];
+        gameMap[playerXY[0]][playerXY[1]] = player;
+    }
+
+    private void play(){
+        Scanner scanner = new Scanner(System.in);
+        while (true){
+            System.out.println("WASD중 하나를 입력해주세요.(몬스터를 잡아주세요. 중간에 지뢰가 숨어있고, 밟으면 게임이 종료됩니다.)");
+            System.out.print("> ");
+            String direction = scanner.next();
+            if (direction.equals("W")) MoveW();
+            else if(direction.equals("A")) MoveA();
+            else if(direction.equals("S")) MoveS();
+            else if(direction.equals("D")) MoveD();
+            else System.out.println("WASD중에 하나를 입력해주세요.");
+            if (playerXY.equals(mineXY)) break;
+            printMap();
+        }
+    }
+
     private void initPlayer(){
+        playerXY[0] = INIT_LOCATION;
+        playerXY[1] = INIT_LOCATION;
         gameMap[INIT_LOCATION][INIT_LOCATION] = player;
     }
 
     private void initMine(Random random){
         int x = random.nextInt(11);
         int y = random.nextInt(11);
+        mineXY[0] = x;
+        mineXY[1] = y;
         gameMap[x][y] = mine;
     }
 
     private void initMonster(Random random){
         int x = random.nextInt(11);
         int y = random.nextInt(11);
+        monsterXY[0] = x;
+        monsterXY[1] = y;
         gameMap[x][y] = monster;
     }
 
