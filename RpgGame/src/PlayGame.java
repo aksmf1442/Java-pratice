@@ -114,12 +114,15 @@ public class PlayGame {
     private void initMine(Random random){
         mineXY[0] = random.nextInt(11);
         mineXY[1] = random.nextInt(11);
+        if (playerXY[0] == mineXY[0] && playerXY[1] == mineXY[1]) initValue();
         gameMap[mineXY[0]][mineXY[1]] = mine;
     }
 
     private void initMonster(Random random){
         monsterXY[0] = random.nextInt(11);
         monsterXY[1] = random.nextInt(11);
+        if ((playerXY[0] == monsterXY[0] && playerXY[1] == monsterXY[1]) ||
+                (mineXY[0] == monsterXY[0] && mineXY[1] == monsterXY[1])) initValue();
         gameMap[monsterXY[0]][monsterXY[1]] = monster;
     }
 
