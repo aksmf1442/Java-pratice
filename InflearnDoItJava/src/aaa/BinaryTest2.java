@@ -1,3 +1,5 @@
+package aaa;
+
 public class BinaryTest2 {
     public static void main(String[] args){
         int num1 = 0B00000000000000000000000000000101;
