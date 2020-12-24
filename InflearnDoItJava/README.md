@@ -76,7 +76,7 @@
 
 ### 클래스 생성
 * 클래스형 변수이름 = new 생성자;
-->Classpart.reference.Student studentA = new Classpart.reference.Student();
+->Student studentA = new Student();
 
 ### 인스턴스
 * 힙(heap) 메모리(동적 메모리 공간)에 저장된다.->주소를 저장
