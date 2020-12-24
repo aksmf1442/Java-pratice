@@ -1,5 +1,6 @@
 package hiding;
 // private은 클래스 내에서만 사용가능하게
+// 만약 Set함수들을 다 주석 처리 해놓으면 read만 가능하게 할 수 있어서 보안이 좋다.
 class BirthDay {
     private int day;
     private int month;
