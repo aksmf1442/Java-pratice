@@ -126,6 +126,8 @@
 
 <img width="397" alt="스크린샷 2020-12-25 오전 6 46 42" src="https://user-images.githubusercontent.com/64648893/103106954-46589980-467d-11eb-8341-a091b2fe35cb.png">
 
-***
+### static 응용 : singleton 패턴
+* 객체가 여러 개이면 안될 때 singleton 패턴 사용
+
 
 
