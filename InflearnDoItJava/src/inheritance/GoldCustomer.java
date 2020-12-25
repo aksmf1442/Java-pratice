@@ -2,7 +2,8 @@ package inheritance;
 
 public class GoldCustomer extends Customer {
 
-    public GoldCustomer(){
+    public GoldCustomer(int customerID, String customerName){
+        super(customerID, customerName);
         bonusRatio = 0.05;
     }
 
