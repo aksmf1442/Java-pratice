@@ -11,7 +11,6 @@ public class CompanyTest {
         System.out.println(c1);
         System.out.println(c2);
 
-        // singleton 패턴 라이브러리
         Calendar cal = Calendar.getInstance();
     }
 }
