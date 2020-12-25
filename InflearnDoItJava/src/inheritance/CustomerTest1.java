@@ -6,7 +6,7 @@ public class CustomerTest1 {
 //        customerLee.setCustomerID(10100);
 //        customerLee.setCustomerName("Lee");
 
-        Customer customerKim = new VipCustomer(10101, "Kim");
+        Customer customerKim = new VipCustomer(10101, "Kim", 100);
         customerKim.bonusPoint = 1000;
 
 //        System.out.println(customerLee.showCustomerInfo());
