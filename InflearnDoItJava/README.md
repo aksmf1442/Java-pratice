@@ -147,5 +147,22 @@
   복사한 곳과 복사된 곳이 같이 값이 변경된다.(얕은 복사)
 * 얕은 복사 문제를 해결하려면 깊은 복사를 하면 됌.
 
+***
+
+### 상속
+* 클래스에 extends 클래스명을 붙이면 상속된다.
+* 하위클래스가 생성될 때 항상 상위 클래스가 먼저 생성된다.
+* 하위클래스가 상위클래스의 타입을 내포하고 있기 때문에 상위클래스로의
+  형변환이 묵시적으로 이루어질 수 있다.(업캐스팅)
+  ex) Customer vc = new VIPCustomer();
+  ->VIPCustomer() 생성자의 호출로 인스턴스는 모두 생성되었지만
+  타입이 Customer 이므로 접근 할 수 있는 변수나 메서드는 Customer의 변수와 메서드이다.
+
+### protected
+* 상속 관계에서는 public과 비슷하다.
+* 가시성 : public > protected > default > private
+
+<img width="353" alt="스크린샷 2020-12-25 오전 11 34 42" src="https://user-images.githubusercontent.com/64648893/103115251-38b70a00-46a5-11eb-8bd1-63914d3fedaa.png">
+
 
 
