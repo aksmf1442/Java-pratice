@@ -221,7 +221,7 @@
 * 프로그래밍시 import하지 않아도 자동으로 import 된다.(import java.lang.*;)
 * 많이 사용하는 기본 클래스들이 속한 패키지이다.(String, Integer, System 등)
 
-### Object 클래스
+### Object 클래스(모든 클래스의 최상위 클래스)
 * toString():
   - Object클래스의 메서드
   - 객체의 정보를 리턴(주소값)
@@ -239,8 +239,20 @@
     정보 은닉, 객체 보호의 관점에서 위배될 수 있다.
   - 객체의 clone()메서드 사용을 허용한다는 의미로 cloneable 인터페이스를 명시해줌
 
+### String 클래스
+* 한 번 생성된 String값은 불변
+* 두 개의 문자열을 연결하면 새로운 인스턴스가 생성 됨
+* 문자열 연결을 계속하면 메모리에 gabage가 많이 생길 수 있다.
+
+### StringBuilder, StringBuffer
+* StringBuffer는 멀티 쓰레드 프로그래밍에서 동기화를 보장
+* 단일 쓰레드 프로그램에서는 StringBuilder를 사용하기를 권장한다.
+* toString() 메서드로 String반환
+* 문자열을 여러 번 연결하거나 변경할 때 사용하면 유용하다.
+
+<img width="260" alt="스크린샷 2020-12-26 오후 1 36 08" src="https://user-images.githubusercontent.com/64648893/103145508-67091800-477f-11eb-9ea7-2ba2d07c1061.png">
+
+<img width="297" alt="스크린샷 2020-12-26 오후 1 46 42" src="https://user-images.githubusercontent.com/64648893/103145611-d0d5f180-4780-11eb-9d6c-d4c40216fa2b.png">
 
 
 
-
-  
