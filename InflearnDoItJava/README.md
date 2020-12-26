@@ -199,3 +199,18 @@
 ### final
 * final 메서드는 하위 클래스에서 재정의(overriding)할 수 없다.
 * final 클래스는 더 이상 상속되지 않는다.
+
+### 인터페이스
+* 모든 메서드가 추상 메서드로 이루어진 클래스
+* 형식적인 선언만 있고 구현은 없다.
+* 인터페이스에 선언된 모든 메서드는 public abstract로 추상 메서드이고, 모든 변수는 public static final로 상수이다.
+* interface, implement는 타입 상속, class, extends는 구현 상속이다.
+* 프로그래밍 설계하는데 사용된다.
+* 클라이언트 코드에서는 인터페이스 명세에 기반하여 가져다 쓴다.
+* default메서드가 중복되는 경우 재정의 해주어야 한다.
+
+<img width="345" alt="스크린샷 2020-12-26 오전 6 49 57" src="https://user-images.githubusercontent.com/64648893/103142461-9c454400-4746-11eb-98ee-444c29b406ca.png">
+
+<img width="339" alt="스크린샷 2020-12-26 오전 7 13 59" src="https://user-images.githubusercontent.com/64648893/103142652-11fedf00-474a-11eb-81c5-af44fa6a4c3f.png">
+
+<img width="326" alt="스크린샷 2020-12-26 오전 7 50 02" src="https://user-images.githubusercontent.com/64648893/103142888-08c44100-474f-11eb-9406-a53f986b4ac2.png">
