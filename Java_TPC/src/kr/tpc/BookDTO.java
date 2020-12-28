@@ -5,7 +5,7 @@ public class BookDTO {
     public int price;
     public String company;
     public int page;
-    
+
     public BookDTO(){};
 
     public BookDTO(String title, int price, String company, int page) {
