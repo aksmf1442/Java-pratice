@@ -10,7 +10,6 @@ public class TPC19 {
 
         Cat c = new Cat();
         c.eat();
-
         // Dog.java(x), Dog.class(o)
 //        Dog dd = new Dog();
 
