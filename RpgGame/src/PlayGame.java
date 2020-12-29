@@ -27,8 +27,8 @@ public class PlayGame {
     private final String player = "P";
     private final String mine = "X";
     private final String monster = "M";
-    private final int[] playerXY = new int[2];
-    private final int[] monsterXY = new int[2];
+    private int[] playerXY = new int[2];
+    private int[] monsterXY = new int[2];
     private int minecount = 1;
     private int result = 0;
 
