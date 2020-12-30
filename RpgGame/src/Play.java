@@ -31,6 +31,7 @@ public class Play {
             System.out.println("WASD중 하나를 입력해주세요.(몬스터를 잡아주세요. 중간에 지뢰가 숨어있고, 밟으면 게임이 종료됩니다.)");
             System.out.print("> ");
             String direction = scanner.next();
+            direction = direction.toUpperCase();
             if (direction.equals("W")) {
                 if (errorCheck("W")){
                     continue;
