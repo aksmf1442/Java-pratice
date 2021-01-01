@@ -1,4 +1,4 @@
-package ch7;
+package ch7.ex19;
 
 public class Audio extends Product {
     public Audio(){

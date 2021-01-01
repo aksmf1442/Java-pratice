@@ -1,4 +1,4 @@
-package ch7;
+package ch7.ex19;
 
 public class Product {
     int price;
