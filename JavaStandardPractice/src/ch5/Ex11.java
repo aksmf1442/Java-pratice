@@ -1,6 +1,6 @@
 package ch5;
 
-public class ex11 {
+public class Ex11 {
     public static void main(String[] args) {
         int[][] score = {
                 {100, 100, 100}
