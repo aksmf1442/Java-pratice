@@ -3,11 +3,11 @@ package step2;
 import java.util.Scanner;
 
 public class Cube {
-    String[][] cube;
-    String direction;
-    String[][] candidate;
-    int idx;
-    int length;
+    private String[][] cube;
+    private String direction;
+    private String[][] candidate;
+    private int idx;
+    private final int length;
 
     public Cube(){
         cube = new String[3][];
@@ -38,7 +38,7 @@ public class Cube {
         }
     }
 
-    public void rotate(){
+    private void rotate(){
         for (String a: direction.split("")){
             switch (a) {
                 case "U", "u" -> rotateU(a);
@@ -120,21 +120,21 @@ public class Cube {
     }
 
 
-    public void printCube(){
+    private void printCube(){
         for(String[] arr:cube){
             System.out.printf("%s %s %s\n",arr[0], arr[1], arr[2]);
         }
         System.out.println();
     }
 
-    public void replaceDirection(){
+    private void replaceDirection(){
         direction = direction.replace("U'","u");
         direction = direction.replace("R'","r");
         direction = direction.replace("L'","l");
         direction = direction.replace("B'","b");
     }
 
-    public boolean checkDirection(){
+    private boolean checkDirection(){
 
         for(int i = 0; i < direction.length(); i++){
             char a = direction.charAt(i);
