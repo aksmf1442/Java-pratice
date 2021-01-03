@@ -8,8 +8,23 @@ public class Direction {
 
     public Direction(String directionInit){
         this.directionInit = directionInit;
-        replaceDirection();
         direction = new ArrayList<>();
+        replaceDirection();
+        classifyDirection();
+    }
+
+    private void classifyDirection() {
+        for (String d : directionInit.split("")){
+            if(Character.isDigit(d.charAt(0)) && Integer.parseInt(d) > 2){
+                direction.add("%s는 없는 기호입니다.");
+            }
+            if (d.contains("UuDdRrLlFfBb") || (!direction.isEmpty()&&Character.isDigit(d.charAt(0)))){
+                direction.add(d);
+            }
+            else{
+                direction.add("%s는 없는 기호입니다.");
+            }
+        }
     }
 
     private void replaceDirection(){
@@ -22,6 +37,4 @@ public class Direction {
     }
 
     
-
-
 }
