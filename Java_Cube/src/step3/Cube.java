@@ -52,24 +52,29 @@ public class Cube {
         System.out.println();
     }
 
+    public String[][] deepcopy(String[][] arr){
+        String[][] candidate = new String[arr.length][];
+        for(int i = 0; i < arr.length; i++){
+            candidate[i] = new String[arr[i].length];
+            System.arraycopy(arr[i], 0, candidate[i], 0, arr[i].length);
+        }
+        return candidate;
+    }
 
     public String[][] rotate270(String[][] cube){
-        int n = cube[0].length;
+        int n = cube.length;
         String[][] candidate = new String[3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
         for(int x = 0; x < n; x++){
             for(int y = 0; y < n; y++){
                 candidate[n-1-y][x] = cube[x][y];
             }
-            System.out.println();
         }
         return candidate;
     }
 
     public String[][] rotate90(String[][] cube){
-        int n = cube[0].length;
+        int n = cube.length;
         String[][] candidate = new String[3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
         for(int x = 0; x < n; x++){
             for(int y = 0; y < n; y++){
                 candidate[y][n-1-x] = cube[x][y];
@@ -79,8 +84,10 @@ public class Cube {
     }
 
     public void rotateU(String d){
-        String[][][] candidate = new String[6][3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
+        String[][][] candidate = new String[6][][];
+        for (int i = 0; i < cube.length; i++){
+            candidate[i] = deepcopy(cube[i]);
+        }
         int[] x = {2,3,4,1};
         int[] y = {4,1,2,3};
         if (d.equals("U")){
@@ -99,8 +106,10 @@ public class Cube {
     }
 
     public void rotateD(String d){
-        String[][][] candidate = new String[6][3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
+        String[][][] candidate = new String[6][][];
+        for (int i = 0; i < cube.length; i++){
+            candidate[i] = deepcopy(cube[i]);
+        }
         int[] x = {2,3,4,1};
         int[] y = {4,1,2,3};
         if (d.equals("D")){
@@ -119,8 +128,10 @@ public class Cube {
     }
 
     public void rotateF(String d){
-        String[][][] candidate = new String[6][3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
+        String[][][] candidate = new String[6][][];
+        for (int i = 0; i < cube.length; i++){
+            candidate[i] = deepcopy(cube[i]);
+        }
         if (d.equals("F")){
             for(int i = 0; i < 3; i++){
                 candidate[0][2][3-i-1] = cube[1][i][2];
@@ -143,8 +154,10 @@ public class Cube {
     }
 
     public void rotateB(String d){
-        String[][][] candidate = new String[6][3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
+        String[][][] candidate = new String[6][][];
+        for (int i = 0; i < cube.length; i++){
+            candidate[i] = deepcopy(cube[i]);
+        }
         if (d.equals("B")){
             for(int i = 0; i < 3; i++){
                 candidate[0][0][i] = cube[3][i][2];
@@ -167,8 +180,10 @@ public class Cube {
     }
 
     public void rotateR(String d){
-        String[][][] candidate = new String[6][3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
+        String[][][] candidate = new String[6][][];
+        for (int i = 0; i < cube.length; i++){
+            candidate[i] = deepcopy(cube[i]);
+        }
         if (d.equals("R")){
             for(int i = 0; i < 3; i++){
                 candidate[0][i][2] = cube[2][i][2];
@@ -191,8 +206,11 @@ public class Cube {
     }
 
     public void rotateL(String d){
-        String[][][] candidate = new String[6][3][3];
-        System.arraycopy(cube, 0, candidate, 0, cube.length);
+        String[][][] candidate = new String[6][][];
+        for (int i = 0; i < cube.length; i++){
+            candidate[i] = deepcopy(cube[i]);
+        }
+
         if (d.equals("L")){
             for(int i = 0; i < 3; i++){
                 candidate[0][3-i-1][0] = cube[4][i][2];
@@ -216,8 +234,11 @@ public class Cube {
 
     public boolean checkCube(){
         for(int i = 0; i < 6; i++){
-            if(!cube[i][0].equals(cube[i][1]) || cube[i][1].equals(cube[i][2])){
-                return false;
+            String a = cube[i][0][0];
+            for (int j = 0; j < 3; j++){
+                if (!a.equals(cube[i][j][0]) || !a.equals(cube[i][j][1]) || !a.equals(cube[i][j][2])){
+                    return false;
+                }
             }
         }
         return true;

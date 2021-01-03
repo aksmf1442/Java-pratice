@@ -37,7 +37,7 @@ public class Play {
             chooseRandomInput(cube, play);
             return;
         }
-        if(chose == 1) randomInput();
+        if(chose == 1) randomInput(cube);
         else if (chose == 2) userInput(cube, play, scanner);
         else{
             System.out.println("잘못된 입력입니다. 1 혹은 2를 입력해주세요");
@@ -57,7 +57,7 @@ public class Play {
             direction = di.getDirection();
             for (String s : direction){
                 cube.selectRotate(s);
-                s = di.reverseReplaceDirection(s);
+                s = Direction.reverseReplaceDirection(s);
                 System.out.println(s);
                 cube.printCube();
             }
@@ -65,7 +65,15 @@ public class Play {
         }
     }
 
-    private void randomInput() {
+    private void randomInput(Cube cube) {
+        while (true){
+            String direction = Direction.getRandomDirection();
+            cube.selectRotate(direction);
+            direction = Direction.reverseReplaceDirection(direction);
+            System.out.println(direction);
+            cube.printCube();
+            if(cube.checkCube()) break;
+        }
 
     }
 }

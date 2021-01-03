@@ -1,6 +1,7 @@
 package step3;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Direction {
     private String directionInit;
@@ -43,7 +44,14 @@ public class Direction {
         return direction;
     }
 
-    public String reverseReplaceDirection(String s) {
+    public static String getRandomDirection(){
+        Random random = new Random();
+        String[] arr = new String[]{"U","u","D","d","F","f","B","b","R","r","L","l"};
+        int idx = random.nextInt(12);
+        return arr[idx];
+    }
+
+    public static String reverseReplaceDirection(String s) {
         s = s.replace("u","U'");
         s = s.replace("d","D'");
         s = s.replace("r","R'");
