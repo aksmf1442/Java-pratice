@@ -61,7 +61,7 @@ public class Play {
                 System.out.println(s);
                 cube.printCube();
             }
-            if(cube.checkCube()) break;
+            if(cube.getCubeRotateCount() >= 1 && cube.checkCube()) break;
         }
     }
 

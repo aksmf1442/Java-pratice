@@ -1,5 +1,7 @@
 package step3;
 
+import java.util.TreeSet;
+
 public class Cube {
     String[][][] cube;
     int cubeRotateCount;
@@ -235,11 +237,20 @@ public class Cube {
     public boolean checkCube(){
         for(int i = 0; i < 6; i++){
             String a = cube[i][0][0];
+            TreeSet<String> b = new TreeSet<>();
             for (int j = 0; j < 3; j++){
-                if (!a.equals(cube[i][j][0]) || !a.equals(cube[i][j][1]) || !a.equals(cube[i][j][2])){
-                    return false;
-                }
+                b.add(cube[i][j][0]);
+                b.add(cube[i][j][1]);
+                b.add(cube[i][j][2]);
             }
+            if (b.size() != 1  && !b.toString().equals(a)){
+                return false;
+            }
+//            for (int j = 0; j < 3; j++){
+//                if (!a.equals(cube[i][j][0]) || !a.equals(cube[i][j][1]) || !a.equals(cube[i][j][2])){
+//                    return false;
+//                }
+//            }
         }
         return true;
     }

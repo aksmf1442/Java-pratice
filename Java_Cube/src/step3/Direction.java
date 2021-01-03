@@ -20,14 +20,16 @@ public class Direction {
                 direction.add(String.format("%s는 없는 기호입니다.", d));
                 continue;
             }
+
             if (("U u D d R r L l F f B b").contains(d)){
                 direction.add(d);
+            }else if(!direction.isEmpty() &&  ("U u D d R r L l F f B b").contains(direction.get(direction.size()-1))
+                    && d.equals("2")){
+                direction.add(direction.get(direction.size()-1));
             }else{
                 direction.add(String.format("%s는 없는 기호입니다.", d));
             }
-            if(!direction.isEmpty()&&Character.isDigit(d.charAt(0))){
-                direction.add(direction.get(direction.toArray().length-1));
-            }
+
         }
     }
 
