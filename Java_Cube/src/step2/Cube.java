@@ -47,6 +47,10 @@ public class Cube {
                 case "B", "b" -> rotateB(a);
             }
             cube = deepCopy(candidate, cube);
+            if(a.equals("u") || a.equals("r") || a.equals("l") || a.equals("b")){
+                a = a.toUpperCase();
+                a += "'";
+            }
             System.out.println(a);
             printCube();
         }
