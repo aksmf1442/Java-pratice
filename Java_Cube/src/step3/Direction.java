@@ -19,11 +19,13 @@ public class Direction {
                 direction.add(String.format("%s는 없는 기호입니다.", d));
                 continue;
             }
-            if (d.contains("UuDdRrLlFfBb") || (!direction.isEmpty()&&Character.isDigit(d.charAt(0)))){
+            if (("U u D d R r L l F f B b").contains(d)){
                 direction.add(d);
-            }
-            else{
+            }else{
                 direction.add(String.format("%s는 없는 기호입니다.", d));
+            }
+            if(!direction.isEmpty()&&Character.isDigit(d.charAt(0))){
+                direction.add(direction.get(direction.toArray().length-1));
             }
         }
     }
@@ -39,5 +41,15 @@ public class Direction {
 
     public ArrayList<String> getDirection() {
         return direction;
+    }
+
+    public String reverseReplaceDirection(String s) {
+        s = s.replace("u","U'");
+        s = s.replace("d","D'");
+        s = s.replace("r","R'");
+        s = s.replace("l","L'");
+        s = s.replace("f","F'");
+        s = s.replace("b","B'");
+        return s;
     }
 }
