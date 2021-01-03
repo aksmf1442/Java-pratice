@@ -3,8 +3,8 @@ package step3;
 import java.util.ArrayList;
 
 public class Direction {
-    String directionInit;
-    ArrayList<String> direction;
+    private String directionInit;
+    private ArrayList<String> direction;
 
     public Direction(String directionInit){
         this.directionInit = directionInit;
@@ -15,14 +15,15 @@ public class Direction {
 
     private void classifyDirection() {
         for (String d : directionInit.split("")){
-            if(Character.isDigit(d.charAt(0)) && Integer.parseInt(d) > 2){
-                direction.add("%s는 없는 기호입니다.");
+            if(Character.isDigit(d.charAt(0)) && Integer.parseInt(d) != 2){
+                direction.add(String.format("%s는 없는 기호입니다.", d));
+                continue;
             }
             if (d.contains("UuDdRrLlFfBb") || (!direction.isEmpty()&&Character.isDigit(d.charAt(0)))){
                 direction.add(d);
             }
             else{
-                direction.add("%s는 없는 기호입니다.");
+                direction.add(String.format("%s는 없는 기호입니다.", d));
             }
         }
     }
@@ -36,5 +37,7 @@ public class Direction {
         directionInit = directionInit.replace("B'","b");
     }
 
-    
+    public ArrayList<String> getDirection() {
+        return direction;
+    }
 }
