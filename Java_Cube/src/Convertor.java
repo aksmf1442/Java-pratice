@@ -61,11 +61,11 @@ class Adder {
     public boolean[] fulladder(boolean bitA, boolean bitB, boolean carry) {
         boolean[] answer = halfadder(bitA, bitB);
         boolean[] candidate = halfadder(answer[1], carry);
-//        if (carry && answer[0]) answer[1] = true;
-//        else if (carry && answer[1]) {
-//            answer[0] = true;
-//            answer[1] = false;
-//        }else if (carry) answer[1] = true;
+        if (carry && answer[0]) answer[1] = true;
+        else if (carry && answer[1]) {
+            answer[0] = true;
+            answer[1] = false;
+        }else if (carry) answer[1] = true;
         return answer;
     }
 
