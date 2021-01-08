@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Boj10757 {
 
   public static void main(String[] args) {
-    ArrayList<Boolean> aList = new ArrayList<>();
-    ArrayList<Boolean> bList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     String a = scanner.next();
     String b = scanner.next();
@@ -29,7 +27,6 @@ class Convertor {
       answer.add(Integer.parseInt(s));
     }
     Collections.reverse(answer);
-    int idx = 0;
     return answer;
   }
 
