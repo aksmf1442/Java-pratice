@@ -1,4 +1,4 @@
-package ch10;
+package ch9;
 
 public class Ex7 {
 
