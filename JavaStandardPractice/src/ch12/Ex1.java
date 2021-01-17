@@ -20,35 +20,47 @@ class Grape extends Fruit {
   }
 }
 
-class Toy {
+class Juice{
+  String name;
+
+  Juice(String name){
+    this.name = name + "Juice";
+  }
+
   public String toString(){
-    return "Toy";
+    return name;
+  }
+}
+
+class Juicer{
+  static Juice makeJuice(FruitBox<? extends Fruit> box){
+    String tmp = "";
+
+    for (Fruit f : box.getList()){
+      tmp += f + " ";
+    }
+    return new Juice(tmp);
   }
 }
 
 public class Ex1 {
 
   public static void main(String[] args) {
-    Box<Fruit> fruitBox = new Box<Fruit>();
-    Box<Apple> appleBox = new Box<Apple>();
-    Box<Toy> toyBox = new Box<Toy>();
-//    Box<Grape> grapeBox = new Box<Apple>(); // 에러. 타입 불일치
+    FruitBox<Fruit> fruitBox = new FruitBox<>();
+    FruitBox<Apple> appleBox = new FruitBox<>();
 
-    fruitBox.add(new Fruit());
     fruitBox.add(new Apple());
-
+    fruitBox.add(new Grape());
     appleBox.add(new Apple());
     appleBox.add(new Apple());
-//    appleBox.add(new Toy()); // 에러. Box<Apple>에는 Apple만 담을 수 있다.
+    appleBox.add(new Apple());
 
-    toyBox.add(new Toy());
-//    toyBox.add(new Apple()); // 에러. Box<Toy>에는 Apple을 담을 수 없다.
-
-    System.out.println(fruitBox);
-    System.out.println(appleBox);
-    System.out.println(toyBox);
+    System.out.println(Juicer.makeJuice(fruitBox));
+    System.out.println(Juicer.makeJuice(appleBox));
   }
 }
+
+class FruitBox<T extends Fruit> extends Box<T> {}
 
 class Box<T> {
 
@@ -60,6 +72,10 @@ class Box<T> {
 
   T get(int i) {
     return list.get(i);
+  }
+
+  ArrayList<T> getList(){
+    return list;
   }
 
   int size() {
