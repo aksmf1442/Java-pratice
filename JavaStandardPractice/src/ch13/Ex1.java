@@ -1,5 +1,7 @@
 package ch13;
 
+import java.util.stream.IntStream;
+
 public class Ex1 {
 
   public static void main(String[] args) {
@@ -15,9 +17,8 @@ public class Ex1 {
 
 class ThreadEx1_1 extends Thread {
   public void run(){
-    for (int i = 0; i < 5; i++){
-      System.out.println(getName());
-    }
+    System.out.println(getName());
+    IntStream.range(0,5).forEach((x) -> System.out.println(Thread.currentThread().getName()));
   }
 }
 
@@ -25,8 +26,7 @@ class ThreadEx1_2 implements Runnable {
 
   @Override
   public void run() {
-    for (int i = 0; i < 5; i++){
-      System.out.println(Thread.currentThread().getName());
-    }
+
+    IntStream.range(0,5).forEach((x) -> System.out.println(Thread.currentThread().getName()));
   }
 }
