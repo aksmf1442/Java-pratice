@@ -14,7 +14,7 @@ public class FunctionTest {
     );
     System.out.println(l.toString());
   }
-  
+
   // String length 반환 함수
   public static <T, R> List<R> map(List<T> list, Function<T, R> f){
     List<R> result = new ArrayList<>();

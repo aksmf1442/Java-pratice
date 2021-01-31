@@ -1,0 +1,36 @@
+// ext는 build.gradle에서 사용하는 전역변수를 설정하겠다는 의미이다.
+// 여기선 springBootVersion 전역변수를 생성하고 그 값을 '2.1.7.RELEASE'로 하겠다는 의미.
+// 즉 spring-boot-gradle-plugin라는 스프링 부트 그레이들 플러그인의 2.1.7RELEASE를 의존성으로 받겠다는 의미.
+buildscript {
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    useJUnitPlatform()
+}
