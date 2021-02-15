@@ -60,7 +60,7 @@ public class PlanItem {
         System.out.print("> ");
         String value = scanner.nextLine();
         System.out.println("일정이 등록되었습니다.");
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         if (dic.containsKey(date)){
             list = dic.get(date);
             list.add(value);
@@ -76,7 +76,7 @@ public class PlanItem {
         System.out.println("[일정 등록] 날짜를 입력하세요.");
         System.out.print("> ");
         String date = scanner.next();
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         if (dic.containsKey(date)){
             list = dic.get(date);
             System.out.printf("%d개의 일정이 있습니다.%n", list.size());

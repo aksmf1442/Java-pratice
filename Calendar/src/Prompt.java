@@ -8,7 +8,7 @@ public class Prompt {
     public void runPrompt() {
         PlanItem p = new PlanItem();
         p.printUI();
-        HashMap<String, ArrayList<String>> dic = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<String>> dic = new HashMap<>();
         while (true) {
             System.out.println("명령(1, 2, 3, h, q)");
             System.out.print("> ");
