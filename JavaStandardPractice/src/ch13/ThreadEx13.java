@@ -28,5 +28,6 @@ class ThreadEx13_1 extends Thread {
             }
         }
         System.out.println("카운트가 종료되었습니다.");
+        System.out.println("커밋 테스트");
     }
 }
